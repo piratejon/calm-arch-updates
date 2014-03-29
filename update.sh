@@ -10,7 +10,8 @@ date_based_folder () {
   _i=0
   while [ -e ${_try} ]
   do
-    _try="${_today}${_i}"
+    _try="${_today}.`printf %03d ${_i}`"
+    _i=$((${_i}+1))
   done
 
   mkdir "${_try}" && {
